@@ -29,4 +29,53 @@ Reasons described above.
 
 - Database server: Postgresql
 
+### Dataset
+
+To satisfy our goals to provide education platform with SQL puzzles, all we need is any database with complex relations between tables and huge amount of data in them. The perfect choice to satisfy our requirements was Lahman’s Baseball dataset ([http://www.seanlahman.com/baseball-archive/statistics/](http://www.seanlahman.com/baseball-archive/statistics/)) which in total contains 24 tables with 80000 rows in each in average.
+
+---
+
+1. Batting Table - contains information about batters. Players, runs, hits, home runs, doubles, triples e.t.c
+2. Pitching table - contains information about pitchers. Players, wild pitches, strikeouts, walks, opponents batting averages e.t.c
+3. Fielding Table - contains information about each player performance on each field. Games, position, time played, assists e.t.c
+4. AllstarFull table - contains information about Allstar games and players.
+5. HallOfFame table - contains information about hall of fame players, votes for them, voting method, honor category e.t.c
+6. Managers table - contains information about teams managers, leagues, performance, managerial order e.t.c 
+7. Teams table - contains information about teams players, franchise, league, division, all possible stats.
+8. BattingPost table - contains information about battings posts which contains players info at bats. 
+9. PitchingPost table - contains information about pitching posts and players info at pitches.  
+10. TeamFranchises table - contains information is team currently active, franchise name e.t.c
+11. FieldingOF table - contains information about field itself, how many plays were played on left, right or center field. 
+12. ManagersHalf table - contains information about managers performance during the half
+13. TeamsHalf table - contains information about team performance during the half
+14. Salaries table - contains info about players and managers salaries
+15. SeriesPost table - contains info about winning and losing series of teams
+16. AwardsManagers table - contains info about awards gained by managers
+17. AwardsPlayers table - contains info about awards gained by players
+18. AwardsShareManagers table - contains more specific info like number of votes each manager received for gaining award
+19. AwardsSharePlayers table - contains more specific info like number of votes each player received for gaining award
+20. FieldingPost table - contains info about fielding posts, rounds positions, teams e.t.c
+21. Appearances table - contains player stats, like total games played as a Cather, pitcher, centerfield, right fielder e.t.c
+22. Schools table - contains info about schools that were founding baseball teams
+23. CollegePlaying table - links player and his school foreign keys
+24. MASTER table - contains detailed personal info about the players like weight, birth and death date, their final game and retroId e.t.c
+
+### General complex questions that our sample database can answer on:
+
+- Can we retrieve all information about the baseball player career?
+- Can we determine the strongest baseball colleges that raised biggest amount of champions?
+- Can we find pitchers that are suffering more from some certain batters from others?
+- Can we find biggest disappointments in baseball career that ruined their perfect career after college?
+- Can we find similar patterns in players performance in different positions on field and their awards?
+- Can we determine patterns on field behavior that are in direct ration influences players salary?
+- Can we find players that has the closest playing stats as Hall of Fame players, but don't have enough awards to be popular?
+- How many players, who played in All-Star matches are currently dead?
+- Which players have the biggest win rate that are are members of Hall of Fame?
+- Can we determine patterns in gaining "Best manager" awards?
+- Which player earned the highest salary, and in which team he was?
+- Can we find the best Catcher In history of baseball, and how many games he played?
+- Which game had the maximum number of home runs?
+- Name the player which have the most votes in Hall Of Fame standings, in comparison to other players, and in which team he played?
+- From which country is the biggest amount  that were members of Hall of Fame?
+
 We will use postgresql, cause its better fits client-server communication rather than sqlite and due to familiarity of team members with it.

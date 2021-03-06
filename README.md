@@ -28,6 +28,7 @@ We will use Django as our backend web framework, since we want make everything r
 Reasons described above.
 
 - Database server: Postgresql
+We will use postgresql, cause its better fits client-server communication rather than sqlite and due to familiarity of team members with it.
 
 ### Dataset
 
@@ -78,4 +79,6 @@ To satisfy our goals to provide education platform with SQL puzzles, all we need
 - Name the player which have the most votes in Hall Of Fame standings, in comparison to other players, and in which team he played?
 - From which country is the biggest amount  that were members of Hall of Fame?
 
-We will use postgresql, cause its better fits client-server communication rather than sqlite and due to familiarity of team members with it.
+### ER diagram relations decision making progress
+
+We were looking through our CSV data and were searching for primary and foreign keys between tables(playerID, teamID e.t.c). After we found all, we connected everything correspondingly.

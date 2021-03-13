@@ -66,8 +66,8 @@ To satisfy our goals to provide education platform with SQL puzzles, all we need
 - Can we retrieve all information about the baseball player career?
 - Can we determine the strongest baseball colleges that raised biggest amount of champions?
 - Can we find pitchers that are suffering more from some certain batters from others?
-- Can we find biggest disappointments in baseball career that ruined their perfect career after college?
-- Can we find similar patterns in players performance in different positions on field and their awards?
+- Which player holds the most played seasons in history and from which school he was?
+- Which team holds the record of most successful seasons in history?
 - Can we determine patterns on field behavior that are in direct ration influences players salary?
 - Can we find players that has the closest playing stats as Hall of Fame players, but don't have enough awards to be popular?
 - How many players, who played in All-Star matches are currently dead?

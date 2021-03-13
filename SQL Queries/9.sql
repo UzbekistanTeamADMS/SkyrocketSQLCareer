@@ -1,0 +1,2 @@
+--Which players have the biggest win rate that are are members of Hall of Fame?
+select distinct a.playerID from HallOfFame a, Teams b, Appearances c where b.LgWin = (select MAX(LgWin) from Teams) and a.playerID = c.playerID and c.teamID = b.teamID;

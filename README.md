@@ -82,3 +82,67 @@ To satisfy our goals to provide education platform with SQL puzzles, all we need
 ### ER diagram relations decision making progress
 
 We were looking through our CSV data and were searching for primary and foreign keys between tables(playerID, teamID e.t.c). After we found all, we connected everything correspondingly.
+
+### User interface implementation
+
+- Build an user-interface with Django ✅
+- Connected the database to our backend server ✅
+- Implemented SQL functions for retrieving corresponding data ✅
+- User feedback displayer (f.e if he wrote correct or incorrect query)
+
+Naive implementation of our SQL compiler:
+
+- We have a Model that has following attributes:
+
+```python
+class Question(models.Model):
+    text = models.CharField(max_length=1000)
+    title = models.CharField(max_length=100)
+    difficulty = models.CharField(max_length=10)
+    solution = models.CharField(max_length=1000)
+    
+    def checkSolution(self, data_to_check):
+        with connection.cursor() as cursor:
+            try: 
+                cursor.execute(self.solution)
+                data = cursor.fetchall()
+                return data == data_to_check
+            except (KeyError):
+                return False
+```
+
+- Where solution is the SQL query that is used for checking for answers.
+- User submits the SQL query and we are checking from incoming post request if solution is correct:
+
+```python
+if request.method == "POST":
+        form = ProblemSolution(request.POST)
+        if form.is_valid():
+            answ = form.cleaned_data["solution"]
+	with connection.cursor() as cursor:
+	                try: 
+	                    cursor.execute(answ)
+	                    check = cursor.fetchall()
+	                    if question.checkSolution(check):
+	                        return render(request, 'skyrocketSql/problem.html', {
+	                            'question': question,
+	                            'form': form,
+	                            'isCorrect': "correct"
+	                        })
+	                    else:
+	                        return render(request, 'skyrocketSql/problem.html', {
+	                            'question': question,
+	                            'form': form,
+	                            'isCorrect': "incorrect"
+	                        })
+```
+
+![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ad795219-a1c0-4fa8-a0e0-cee28170592b/Screen_Shot_2021-03-28_at_23.44.34.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ad795219-a1c0-4fa8-a0e0-cee28170592b/Screen_Shot_2021-03-28_at_23.44.34.png)
+
+![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/955db9bd-14a3-4f07-a534-3cc6c2021565/Screen_Shot_2021-03-28_at_23.44.42.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/955db9bd-14a3-4f07-a534-3cc6c2021565/Screen_Shot_2021-03-28_at_23.44.42.png)
+
+![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d68a27b6-7115-4fcf-a8ad-9b29b3ffef2d/Screen_Shot_2021-03-28_at_23.45.04.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d68a27b6-7115-4fcf-a8ad-9b29b3ffef2d/Screen_Shot_2021-03-28_at_23.45.04.png)
+
+![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/266849eb-5d07-4a17-8fd7-3f4749c25c4b/Screen_Shot_2021-03-29_at_00.00.59.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/266849eb-5d07-4a17-8fd7-3f4749c25c4b/Screen_Shot_2021-03-29_at_00.00.59.png)
+
+Implemented: Topics creation and reading, creating problems and solving them with user feedback, contests - Work in Progress

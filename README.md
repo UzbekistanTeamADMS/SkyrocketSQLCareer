@@ -88,7 +88,7 @@ We were looking through our CSV data and were searching for primary and foreign 
 - Build an user-interface with Django ✅
 - Connected the database to our backend server ✅
 - Implemented SQL functions for retrieving corresponding data ✅
-- User feedback displayer (f.e if he wrote correct or incorrect query)
+- User feedback displaying (f.e if he wrote correct or incorrect query) ✅
 
 Naive implementation of our SQL compiler:
 

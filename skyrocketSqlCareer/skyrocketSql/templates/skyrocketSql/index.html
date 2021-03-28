@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js"></script>
+  <title>SkyrocketSql</title>
+</head>
+<body>
+<nav class="navbar navbar-light bg-light">
+  <div class = "container" >
+    <a class="navbar-brand" href="{% url 'index' %}">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Circle-icons-rocket.svg/1200px-Circle-icons-rocket.svg.png" width = "50" height = "50" alt="">
+      Skyrocket SQL Career
+    </a>
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link active" href="{% url 'index' %}">Problems</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Topics</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Contests</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+    {% if topics %}
+    <div class='container'>
+      <div class= 'row'>
+      {% for topic in topics %}
+        <div class="card col-6 col-sm-3 " style="width: 18rem; margin: 20px">
+          <img src="{{ topic.imageUrl }}" style="object-fit: cover;" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{ topic.title }}</h5>
+            <p class="card-text" style="max-height: 150px;overflow: hidden;">{{ topic.text }}</p>
+            <a href="#" class="btn btn-primary">Read</a>
+          </div>
+        </div>
+      {% endfor %}
+      </div>
+      </div>
+    {% endif %}
+    {% if question_list %}
+        <ul class="list-group">
+        {% for question in question_list %}
+            <li class="list-group-item d-flex justify-content-between align-items-center"><a href="{% url 'problem' question.id %}"> {{ question.title }} </a>
+            {% if question.difficulty == "easy" %}
+              <span class="badge badge-success">{{ question.difficulty }}</span>
+            {% elif question.difficulty == "medium" %}
+              <span class="badge badge-warning">{{ question.difficulty }}</span>
+            {% elif question.difficulty == "hard" %}
+            <span class="badge badge-danger">{{ question.difficulty }}</span>
+            {% endif %}
+</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No polls are available.</p>
+    {% endif %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+</body>
+</html>

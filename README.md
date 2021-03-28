@@ -145,4 +145,6 @@ if request.method == "POST":
 
 ![4](https://github.com/UzbekistanTeamADMS/SkyrocketSQLCareer/blob/main/Screenshots/photo_2021-03-29_00-11-11.jpg)
 
-Implemented: Topics creation and reading, creating problems and solving them with user feedback, contests - Work in Progress
+Implemented: Topics creation and reading, creating problems and solving them with user feedback, contests.
+
+Work in Progress...

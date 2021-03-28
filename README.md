@@ -139,10 +139,10 @@ if request.method == "POST":
 
 ![1](https://github.com/UzbekistanTeamADMS/SkyrocketSQLCareer/blob/main/Screenshots/photo_2021-03-29_00-11-04.jpg)
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/955db9bd-14a3-4f07-a534-3cc6c2021565/Screen_Shot_2021-03-28_at_23.44.42.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/955db9bd-14a3-4f07-a534-3cc6c2021565/Screen_Shot_2021-03-28_at_23.44.42.png)
+![2](https://github.com/UzbekistanTeamADMS/SkyrocketSQLCareer/blob/main/Screenshots/photo_2021-03-29_00-11-07.jpg)
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d68a27b6-7115-4fcf-a8ad-9b29b3ffef2d/Screen_Shot_2021-03-28_at_23.45.04.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d68a27b6-7115-4fcf-a8ad-9b29b3ffef2d/Screen_Shot_2021-03-28_at_23.45.04.png)
+![3](https://github.com/UzbekistanTeamADMS/SkyrocketSQLCareer/blob/main/Screenshots/photo_2021-03-29_00-11-09.jpg)
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/266849eb-5d07-4a17-8fd7-3f4749c25c4b/Screen_Shot_2021-03-29_at_00.00.59.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/266849eb-5d07-4a17-8fd7-3f4749c25c4b/Screen_Shot_2021-03-29_at_00.00.59.png)
+![4](https://github.com/UzbekistanTeamADMS/SkyrocketSQLCareer/blob/main/Screenshots/photo_2021-03-29_00-11-11.jpg)
 
 Implemented: Topics creation and reading, creating problems and solving them with user feedback, contests - Work in Progress

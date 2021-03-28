@@ -137,7 +137,7 @@ if request.method == "POST":
 	                        })
 ```
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ad795219-a1c0-4fa8-a0e0-cee28170592b/Screen_Shot_2021-03-28_at_23.44.34.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ad795219-a1c0-4fa8-a0e0-cee28170592b/Screen_Shot_2021-03-28_at_23.44.34.png)
+![1](https://github.com/UzbekistanTeamADMS/SkyrocketSQLCareer/blob/main/Screenshots/photo_2021-03-29_00-11-04.jpg)
 
 ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/955db9bd-14a3-4f07-a534-3cc6c2021565/Screen_Shot_2021-03-28_at_23.44.42.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/955db9bd-14a3-4f07-a534-3cc6c2021565/Screen_Shot_2021-03-28_at_23.44.42.png)
 

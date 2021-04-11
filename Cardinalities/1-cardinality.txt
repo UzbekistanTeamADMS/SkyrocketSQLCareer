@@ -1,0 +1,32 @@
+--query preparation
+
+SELECT COUNT(*) FROM master, salaries, awardsplayers 
+WHERE master.playerid = salaries.playerid AND master.playerid = awardsplayers.playerid AND master.playerID = 'kingmda01';
+
+--------------------------------------------------------
+--join plans
+
+SELECT COUNT(*) from salaries JOIN (master JOIN awardsplayers ON master.playerid = awardsplayers.playerid
+AND master.playerID = 'kingmda01') ON master.playerid = salaries.playerid;
+
+SELECT COUNT(*) from awardsplayers JOIN (master JOIN salaries ON master.playerid = salaries.playerid
+AND master.playerID = 'kingmda01') ON master.playerid = awardsplayers.playerid;
+
+SELECT COUNT(*) from master JOIN (salaries CROSS JOIN awardsplayers) ON 
+master.playerid = salaries.playerid AND master.playerid = awardsplayers.playerid AND master.playerID = 'kingmda01';
+
+---------------------------------------------------------
+--subqueries and true join cardin.
+
+SELECT COUNT(*) FROM master, awardsplayers WHERE master.playerid = awardsplayers.playerid AND master.playerID = 'kingmda01'
+(master ⋈ awardsplayers) ⋈ salaries (2 + 4 = 6 tuples)
+
+SELECT COUNT(*) FROM master, salaries WHERE master.playerid = salaries.playerid AND master.playerID = 'kingmda01';
+(master ⋈ salaries) ⋈ awardsplayers (2 + 4 = 6 tuples)
+
+SELECT COUNT(*) FROM salaries, awardsplayers;
+(salaries ⋈ awardsplayers) ⋈ master (149191708 + 4 = 149191712 tuples)
+
+1st & 2nd plans are equally less than 3rd, so we can use them both.
+
+

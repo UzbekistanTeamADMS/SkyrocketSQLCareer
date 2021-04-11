@@ -1,0 +1,32 @@
+--query preparation
+
+SELECT COUNT(*) FROM halloffame, teams, appearances 
+WHERE halloffame.playerid = appearances.playerid and appearances.teamid = teams.teamid 
+and teams.LgWin = (select MAX(LgWin) from teams);
+
+--------------------------------------------------------
+--join plans
+
+SELECT COUNT(*) FROM teams JOIN (halloffame JOIN appearances ON halloffame.playerid = appearances.playerid)
+ON appearances.teamid = teams.teamid and teams.LgWin = (select MAX(LgWin) from teams);
+
+SELECT COUNT(*) FROM halloffame JOIN (appearances JOIN teams ON appearances.teamid = teams.teamid 
+and teams.LgWin = (select MAX(LgWin) from teams)) ON halloffame.playerid = appearances.playerid;
+
+SELECT COUNT(*) FROM appearances JOIN (teams CROSS JOIN halloffame) 
+ON halloffame.playerid = appearances.playerid and appearances.teamid = teams.teamid and teams.LgWin = (select MAX(LgWin) from teams);
+
+--------------------------------------------------------
+--subqueries and true join cardin.
+
+SELECT COUNT(*) FROM halloffame, appearances WHERE halloffame.playerid = appearances.playerid;
+(halloffame ⋈ appearances) ⋈ teams (66539 + 792191 = 858730 tuples)
+
+SELECT COUNT(*) FROM appearances, teams WHERE appearances.teamid = teams.teamid and teams.LgWin = (select MAX(LgWin) from teams);
+(appearances ⋈ teams) ⋈ halloffame (815549 + 792191 = 1607740 tuples)
+
+SELECT COUNT(*) from teams, halloffame;
+(teams ⋈ halloffame) ⋈ appearances (11344200 + 792191 = 12136391 tuples)
+
+1st plan is the fastest among others.
+

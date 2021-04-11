@@ -1,0 +1,32 @@
+--query preparation
+
+SELECT COUNT(*) FROM master, teams, appearances WHERE master.playerID = 
+(SELECT playerID FROM HallOfFame WHERE votes = (SELECT MAX(votes) FROM HallOfFame))
+AND master.playerID = appearances.playerID AND appearances.teamID = teams.teamID;
+
+--------------------------------------------------------
+--join plans
+
+SELECT COUNT(*) FROM master JOIN (appearances JOIN teams ON appearances.teamID = teams.teamID) 
+ON master.playerID = appearances.playerID AND master.playerID = (select playerID from HallOfFame where votes = (select MAX(votes) from HallOfFame));
+
+SELECT COUNT(*) FROM teams JOIN (master JOIN appearances ON master.playerID = appearances.playerID 
+AND master.playerID = (SELECT playerID FROM HallOfFame WHERE votes = (SELECT MAX(votes) FROM HallOfFame))) ON appearances.teamID = teams.teamID;
+
+SELECT COUNT(*) FROM appearances JOIN (teams CROSS JOIN master) ON master.playerID = (SELECT playerID FROM HallOfFame WHERE votes = (SELECT MAX(votes) FROM HallOfFame))
+AND master.playerID = appearances.playerID AND appearances.teamID = teams.teamID;
+
+--------------------------------------------------------
+--subqueries and true join cardin.
+
+SELECT COUNT(*) FROM appearances, teams WHERE appearances.teamID = teams.teamID;
+(appearances ⋈ teams) ⋈ master (7763340 + 2135 = 7765475 tuples)
+
+SELECT COUNT(*) FROM master, appearances WHERE master.playerID = appearances.playerID 
+AND master.playerID = (SELECT playerID FROM HallOfFame WHERE votes = (SELECT MAX(votes) FROM HallOfFame));
+(master ⋈ appearances) ⋈ teams (25 + 2135 = 2160 tuples)
+
+SELECT COUNT(*) FROM teams, master WHERE master.playerID = (SELECT playerID FROM HallOfFame WHERE votes = (SELECT MAX(votes) FROM HallOfFame))
+(teams ⋈ master) ⋈ appearances (2775 + 2135 = 4910)
+
+2nd plan is the fastest among others.

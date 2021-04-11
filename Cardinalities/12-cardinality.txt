@@ -1,0 +1,28 @@
+--query preparation
+
+SELECT COUNT(*) FROM master, appearances, batting 
+WHERE master.playerID = appearances.playerID 
+AND master.playerID = batting.playerID AND batting.playerID = (SELECT playerID FROM batting ORDER BY AB DESC LIMIT 1);
+
+--------------------------------------------------------
+--join plans
+
+SELECT COUNT(*) FROM appearances JOIN (master JOIN batting ON master.playerID = batting.playerID AND batting.playerID = (select playerID from Batting order by AB DESC LIMIT 1)) ON master.playerID = appearances.playerID;
+
+SELECT COUNT(*) FROM batting JOIN (master JOIN appearances ON master.playerID = appearances.playerID) ON master.playerID = batting.playerID AND batting.playerID = (select playerID from Batting order by AB DESC LIMIT 1);
+
+SELECT COUNT(*) FROM master JOIN (appearances CROSS JOIN batting) ON master.playerID = appearances.playerID and master.playerID = batting.playerID AND batting.playerID = (select playerID from Batting order by AB DESC LIMIT 1);
+
+--------------------------------------------------------
+--subqueries and true join cardin.
+
+SELECT COUNT(*) FROM master, batting WHERE master.playerID = batting.playerID AND batting.playerID = (select playerID from Batting order by AB DESC LIMIT 1);
+(master ⋈ batting) ⋈ appearances (12 + 144 = 156 tuples)
+
+SELECT COUNT(*) FROM master, appearances WHERE master.playerID = appearances.playerID
+(master ⋈ appearances) ⋈ batting (99459 + 144 = 99603 tuples)
+
+SELECT COUNT(*) FROM appearances, batting WHERE batting.playerID = (select playerID from Batting order by AB DESC LIMIT 1);
+(appearances ⋈ batting) ⋈ master (1193592 + 144 = 1193736 tuples)
+
+1st plan is the fastest among others.

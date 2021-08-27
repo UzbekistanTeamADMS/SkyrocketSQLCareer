@@ -27,7 +27,7 @@ We will use Django as our backend web framework, since we want make everything r
 
 Reasons described above.
 
-- Database server: Postgresql
+- Database server: Postgresql.
 We will use postgresql, cause its better fits client-server communication rather than sqlite and due to familiarity of team members with it.
 
 ### Dataset
@@ -145,5 +145,6 @@ if request.method == "POST":
 
 ![4](https://github.com/UzbekistanTeamADMS/SkyrocketSQLCareer/blob/main/Screenshots/photo_2021-03-29_00-11-11.jpg)
 
-Implemented: Topics creation and reading, creating problems and solving them with user feedback
-Work in progress: Contests
+Implemented: Topics creation and reading, creating problems and solving them with user feedback.
+
+Work in progress: Contests...

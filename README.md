@@ -28,6 +28,7 @@ We will use Django as our backend web framework, since we want make everything r
 Reasons described above.
 
 - Database server: Postgresql.
+
 We will use postgresql, cause its better fits client-server communication rather than sqlite and due to familiarity of team members with it.
 
 ### Dataset

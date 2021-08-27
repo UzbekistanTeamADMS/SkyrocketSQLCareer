@@ -37,30 +37,30 @@ To satisfy our goals to provide education platform with SQL puzzles, all we need
 
 ---
 
-1. Batting Table - contains information about batters. Players, runs, hits, home runs, doubles, triples e.t.c
-2. Pitching table - contains information about pitchers. Players, wild pitches, strikeouts, walks, opponents batting averages e.t.c
-3. Fielding Table - contains information about each player performance on each field. Games, position, time played, assists e.t.c
+1. Batting Table - contains information about batters. Players, runs, hits, home runs, doubles, triples, and e.t.c;
+2. Pitching table - contains information about pitchers. Players, wild pitches, strikeouts, walks, opponents batting averages, and e.t.c;
+3. Fielding Table - contains information about each player performance on each field. Games, position, time played, assists, and e.t.c;
 4. AllstarFull table - contains information about Allstar games and players.
-5. HallOfFame table - contains information about hall of fame players, votes for them, voting method, honor category e.t.c
-6. Managers table - contains information about teams managers, leagues, performance, managerial order e.t.c 
-7. Teams table - contains information about teams players, franchise, league, division, all possible stats.
-8. BattingPost table - contains information about battings posts which contains players info at bats. 
-9. PitchingPost table - contains information about pitching posts and players info at pitches.  
-10. TeamFranchises table - contains information is team currently active, franchise name e.t.c
-11. FieldingOF table - contains information about field itself, how many plays were played on left, right or center field. 
-12. ManagersHalf table - contains information about managers performance during the half
-13. TeamsHalf table - contains information about team performance during the half
-14. Salaries table - contains info about players and managers salaries
-15. SeriesPost table - contains info about winning and losing series of teams
-16. AwardsManagers table - contains info about awards gained by managers
-17. AwardsPlayers table - contains info about awards gained by players
-18. AwardsShareManagers table - contains more specific info like number of votes each manager received for gaining award
-19. AwardsSharePlayers table - contains more specific info like number of votes each player received for gaining award
-20. FieldingPost table - contains info about fielding posts, rounds positions, teams e.t.c
-21. Appearances table - contains player stats, like total games played as a Cather, pitcher, centerfield, right fielder e.t.c
-22. Schools table - contains info about schools that were founding baseball teams
-23. CollegePlaying table - links player and his school foreign keys
-24. MASTER table - contains detailed personal info about the players like weight, birth and death date, their final game and retroId e.t.c
+5. HallOfFame table - contains information about hall of fame players, votes for them, voting method, honor category, and e.t.c;
+6. Managers table - contains information about teams managers, leagues, performance, managerial order, and e.t.c; 
+7. Teams table - contains information about teams players, franchise, league, division, all possible stats;
+8. BattingPost table - contains information about battings posts which contains players info at bats;
+9. PitchingPost table - contains information about pitching posts and players info at pitches;
+10. TeamFranchises table - contains information is team currently active, franchise name, and e.t.c;
+11. FieldingOF table - contains information about field itself, how many plays were played on left, right or center field;
+12. ManagersHalf table - contains information about managers performance during the half;
+13. TeamsHalf table - contains information about team performance during the half;
+14. Salaries table - contains info about players and managers salaries;
+15. SeriesPost table - contains info about winning and losing series of teams;
+16. AwardsManagers table - contains info about awards gained by managers;
+17. AwardsPlayers table - contains info about awards gained by players;
+18. AwardsShareManagers table - contains more specific info like number of votes each manager received for gaining award;
+19. AwardsSharePlayers table - contains more specific info like number of votes each player received for gaining award;
+20. FieldingPost table - contains info about fielding posts, rounds positions, teams, and e.t.c;
+21. Appearances table - contains player stats, like total games played as a Cather, pitcher, centerfield, right fielder, and e.t.c;
+22. Schools table - contains info about schools that were founding baseball teams;
+23. CollegePlaying table - links player and his school foreign keys;
+24. MASTER table - contains detailed personal info about the players like weight, birth and death date, their final game and retroId and e.t.c;
 
 ### General complex questions that our sample database can answer on:
 
@@ -82,7 +82,7 @@ To satisfy our goals to provide education platform with SQL puzzles, all we need
 
 ### ER diagram relations decision making progress
 
-We were looking through our CSV data and were searching for primary and foreign keys between tables(playerID, teamID e.t.c). After we found all, we connected everything correspondingly.
+We were looking through our CSV data and were searching for primary and foreign keys between tables(playerID, teamID, and e.t.c). After we found all, we connected everything correspondingly.
 
 ### User interface implementation
 
